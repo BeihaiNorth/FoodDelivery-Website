@@ -1,0 +1,18 @@
+<style>
+  body {
+      position: relative;
+  }
+  .affix {
+      top: 20px;
+  }
+  @media screen and (max-width: 810px) {
+    #sectionInfo, #section1, #section2, #section3, #section4, #section5, #section6, #section7 {
+        margin-left: 150px;
+    }
+  }
+
+
+	.label {
+		float: right;
+	}
+  </style>
