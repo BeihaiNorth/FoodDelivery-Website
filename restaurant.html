@@ -11,35 +11,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src=" https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js "></script>
-    <script>
-    var app = angular.module("myShoppingList", []);
-    app.controller("myCtrl", function($scope) {
-        $scope.products = [];
-        $scope.addMe = "3 Pieces Chicken Combo";
-        $scope.addItem = function() {
-            $scope.total += $scope.price * $scope.quantity;
-            $scope.errortext = "";
-            if (!$scope.addMe) {
-                return;
-            }
-            if ($scope.products.indexOf($scope.addMe) == -1) {
-                $scope.products.push($scope.addMe);
-            } else {
-                $scope.errortext = "The item is already in your shopping list.";
-            }
-        }
-        $scope.removeItem = function(x) {
-            $scope.errortext = "";
-            $scope.products.splice(x, 1);
-        }
-        $scope.price = 7.89;
-        $scope.quantity = 1;
-        $scope.total = 0;
-
-    });
-    </script>
-    <!-- <link href="css/demo.css" rel="stylesheet" />  -->
-    <!-- // <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script> -->
+    <script src="static/restaurant.js"></script>
 </head>
 
 <body data-spy="scroll" data-target="#myScrollspy" data-offset="10" ng-app="myShoppingList" ng-controller="myCtrl">
@@ -96,9 +68,10 @@
                     </div>
                 </div>
             </nav>
+            <!-- food menu -->
             <div class="col-sm-6">
                 <div class="panel panel-default">
-                    <div class="panel-body">
+                    <div class="panel-body" id="foodlist">
                         <div id="section0">
                             <h2>POPEYES</h2>
                             <p>Open time: 10 am - 23 pm</p>
@@ -106,14 +79,61 @@
                         <div id="section1">
                             <h2>Real Meals</h2>
                             <ul class="list-group">
-                                <li class="list-group-item"><a href=# data-toggle="modal" data-target="#myModal">3 Pieces Combo<span class="label label-primary">$7.89</span></a></li>
+                                <li class="list-group-item"><a href=# data-toggle="modal" data-target="#myModal" id="food1" onclick="showModal(this)">3 Pieces Combo<span class="label label-primary">$7.89</span></a></li>
+                                <li class="list-group-item"><a href=# data-toggle="modal" data-target="#myModal" id="food2">4 Pieces Combo<span class="label label-primary">$7.89</span></a></li>
+                                <li class="list-group-item"><a href=# data-toggle="modal" data-target="#myModal" id="food3">5 Wings Combo<span class="label label-primary">$7.89</span></a></li>
+                                <li class="list-group-item"><a href=# data-toggle="modal" data-target="#myModal" id="food4">Cajun Fish Combo<span class="label label-primary">$7.89</span></a></li>
+                            </ul>
+                        </div>
+                        <div id="section2">
+                            <h2>Louisiana Travelers</h2>
+                            <ul class="list-group">
+                                <li class="list-group-item"><a href=# data-toggle="modal" data-target="#myModal">3 Tenders<span class="label label-primary">$7.89</span></a></li>
+                                <li class="list-group-item"><a href=# data-toggle="modal" data-target="#myModal">5 Tenders<span class="label label-primary">$7.89</span></a></li>
+                                <li class="list-group-item"><a href=# data-toggle="modal" data-target="#myModal">6 Nuggets<span class="label label-primary">$7.89</span></a></li>
+                                <li class="list-group-item"><a href=# data-toggle="modal" data-target="#myModal">9 Nuggets<span class="label label-primary">$7.89</span></a></li>
+                            </ul>
+                        </div>
+                        <div id="section3">
+                            <h2>Big Easy</h2>
+                            <ul class="list-group">
+                                <li class="list-group-item"><a href=# data-toggle="modal" data-target="#myModal">Loaded Chicken Wrap<span class="label label-primary">$7.89</span></a></li>
+                                <li class="list-group-item"><a href=# data-toggle="modal" data-target="#myModal">Chicken Tender Sandwich<span class="label label-primary">$7.89</span></a></li>
+                                <li class="list-group-item"><a href=# data-toggle="modal" data-target="#myModal">Popcorn Shrimp Sandwich<span class="label label-primary">$7.89</span></a></li>
+                                <li class="list-group-item"><a href=# data-toggle="modal" data-target="#myModal">Chicken & Sausage Bowl<span class="label label-primary">$7.89</span></a></li>
+                            </ul>
+                        </div>
+                        <div id="section4">
+                            <h2>Local Favorites</h2>
+                            <ul class="list-group">
+                                <li class="list-group-item"><a href=# data-toggle="modal" data-target="#myModal">Loaded Chicken Wrap<span class="label label-primary">$7.89</span></a></li>
+                                <li class="list-group-item"><a href=# data-toggle="modal" data-target="#myModal">Chicken Tender Sandwich<span class="label label-primary">$7.89</span></a></li>
+                                <li class="list-group-item"><a href=# data-toggle="modal" data-target="#myModal">Popcorn Shrimp Sandwich<span class="label label-primary">$7.89</span></a></li>
+                            </ul>
+                        </div>
+                        <div id="section5">
+                            <h2>Desserts</h2>
+                            <ul class="list-group">
+                                <li class="list-group-item"><a href=# data-toggle="modal" data-target="#myModal">Hot Cinnamon Apple Pie<span class="label label-primary">$7.89</span></a></li>
+                                <li class="list-group-item"><a href=# data-toggle="modal" data-target="#myModal">Mardi Gras Cheesecake<span class="label label-primary">$7.89</span></a></li>
+                                <li class="list-group-item"><a href=# data-toggle="modal" data-target="#myModal">Pecan Pie<span class="label label-primary">$7.89</span></a></li>
+                            </ul>
+                        </div>
+                        <div id="section6">
+                            <h2>Beverages</h2>
+                            <ul class="list-group">
+                                <li class="list-group-item"><a href=# data-toggle="modal" data-target="#myModal">Bottled Water<span class="label label-primary">$7.89</span></a></li>
+                                <li class="list-group-item"><a href=# data-toggle="modal" data-target="#myModal">Soda<span class="label label-primary">$7.89</span></a></li>
+                            </ul>
+                        </div>
+
                                 <!-- Modal -->
                                 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                <h4 class="modal-title" id="myModalLabel" ng-model="addMe">3 Pieces Combo</h4>
+                                                <h4 class="modal-title" id="myModalLabel"></h4>
                                             </div>
                                             <div class="modal-body">
                                                 Make it a combo! Includes a signature side, a hot buttery biscuit and an ice cold, refreshing drink.
@@ -129,76 +149,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <li class="list-group-item"><a href=# data-toggle="modal" data-target="#Combo4">4 Pieces Combo<span class="label label-primary">$7.89</span></a></li>
-                                <!-- Modal -->
-                                <div class="modal fade" id="Combo4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                <h4 class="modal-title" id="myModalLabel" ng-model="addMe">4 Pieces Combo</h4>
-                                            </div>
-                                            <div class="modal-body">
-                                                Make it a combo! Includes a signature side, a hot buttery biscuit and an ice cold, refreshing drink.
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="glyphicon glyphicon-minus" ng-click="quantity = quantity - 1"></button>
-                                                <input name="quantity" ng-model="quantity">
-                                                <button type="button" class="glyphicon glyphicon-plus" ng-click="quantity = quantity + 1"></button>
-                                                <button type="button" class="btn btn-primary" ng-click="addItem()" data-dismiss="modal">Add to Bag
-                                                    <span class="badge">
-                                {{quantity*price|currency}}
-                                </span>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <li class="list-group-item"><a href=#>5 Wings Combo<span class="label label-primary">$7.89</span></a></li>
-                                <li class="list-group-item"><a href=#>Cajun Fish Combo<span class="label label-primary">$7.89</span></a></li>
-                            </ul>
-                        </div>
-                        <div id="section2">
-                            <h2>Louisiana Travelers</h2>
-                            <ul class="list-group">
-                                <li class="list-group-item"> <a href=#>3 Tenders<span class="label label-primary">$7.89</span></a></li>
-                                <li class="list-group-item"><a href=#>5 Tenders<span class="label label-primary">$7.89</span></a></li>
-                                <li class="list-group-item"><a href=#>6 Nuggets<span class="label label-primary">$7.89</span></a></li>
-                                <li class="list-group-item"><a href=#>9 Nuggets<span class="label label-primary">$7.89</span></a></li>
-                            </ul>
-                        </div>
-                        <div id="section3">
-                            <h2>Big Easy</h2>
-                            <ul class="list-group">
-                                <li class="list-group-item"> <a href=#>Loaded Chicken Wrap<span class="label label-primary">$7.89</span></a></li>
-                                <li class="list-group-item"><a href=#>Chicken Tender Sandwich<span class="label label-primary">$7.89</span></a></li>
-                                <li class="list-group-item"><a href=#>Popcorn Shrimp Sandwich<span class="label label-primary">$7.89</span></a></li>
-                                <li class="list-group-item"><a href=#>Chicken & Sausage Bowl<span class="label label-primary">$7.89</span></a></li>
-                            </ul>
-                        </div>
-                        <div id="section4">
-                            <h2>Local Favorites</h2>
-                            <ul class="list-group">
-                                <li class="list-group-item"> <a href=#>Loaded Chicken Wrap<span class="label label-primary">$7.89</span></a></li>
-                                <li class="list-group-item"><a href=#>Chicken Tender Sandwich<span class="label label-primary">$7.89</span></a></li>
-                                <li class="list-group-item"><a href=#>Popcorn Shrimp Sandwich<span class="label label-primary">$7.89</span></a></li>
-                            </ul>
-                        </div>
-                        <div id="section5">
-                            <h2>Desserts</h2>
-                            <ul class="list-group">
-                                <li class="list-group-item"> <a href=#>Hot Cinnamon Apple Pie<span class="label label-primary">$7.89</span></a></li>
-                                <li class="list-group-item"><a href=#>Mardi Gras Cheesecake<span class="label label-primary">$7.89</span></a></li>
-                                <li class="list-group-item"><a href=#>Pecan Pie<span class="label label-primary">$7.89</span></a></li>
-                            </ul>
-                        </div>
-                        <div id="section6">
-                            <h2>Beverages</h2>
-                            <ul class="list-group">
-                                <li class="list-group-item"> <a href=#>Bottled Water<span class="label label-primary">$7.89</span></a></li>
-                                <li class="list-group-item"><a href=#>Soda<span class="label label-primary">$7.89</span></a></li>
-                            </ul>
-                        </div>
                         <div>
                             <h2>Maps and Hours</h2>
                         </div>
