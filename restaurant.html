@@ -6,12 +6,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="static/css/restaurant.css">
-    <link rel="stylesheet" type="text/css" href="static/css/main.css">
+    <link rel="stylesheet" href="CSS/restaurant.css">
+    <link rel="stylesheet" type="text/css" href="CSS/main.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src=" https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js "></script>
-    <script src="static/restaurant.js"></script>
+    <script src="JS/restaurant.js"></script>
 </head>
 
 <body data-spy="scroll" data-target="#myScrollspy" data-offset="10" ng-app="myShoppingList" ng-controller="myCtrl">
@@ -40,7 +40,7 @@
         <div class="restaurant-theme-img-lg">
             <div class="restaurant-info row">
                 <div class="col-xs-1 col-sm-4">
-                    <img src="static/img/logo.png" width="130">
+                    <img src="img/logo.png" width="130">
                 </div>
                 <div class="col-xs-11 col-sm-8">
                     <h1>POPEYES</h1>
@@ -126,29 +126,28 @@
                                 <li class="list-group-item"><a href=# data-toggle="modal" data-target="#myModal">Soda<span class="label label-primary">$7.89</span></a></li>
                             </ul>
                         </div>
-
-                                <!-- Modal -->
-                                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                <h4 class="modal-title" id="myModalLabel"></h4>
-                                            </div>
-                                            <div class="modal-body">
-                                                Make it a combo! Includes a signature side, a hot buttery biscuit and an ice cold, refreshing drink.
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="glyphicon glyphicon-minus" ng-click="quantity = quantity - 1"></button>
-                                                <input name="quantity" ng-model="quantity">
-                                                <button type="button" class="glyphicon glyphicon-plus" ng-click="quantity = quantity + 1"></button>
-                                                <button type="button" class="btn btn-primary" ng-click="addItem()" data-dismiss="modal">Add to Bag
-                                                    <span class="badge">{{quantity*price|currency}}</span>
-                                                </button>
-                                            </div>
-                                        </div>
+                        <!-- Modal -->
+                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="myModalLabel"></h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        Make it a combo! Includes a signature side, a hot buttery biscuit and an ice cold, refreshing drink.
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="glyphicon glyphicon-minus" ng-click="quantity = quantity - 1"></button>
+                                        <input name="quantity" ng-model="quantity">
+                                        <button type="button" class="glyphicon glyphicon-plus" ng-click="quantity = quantity + 1"></button>
+                                        <button type="button" class="btn btn-primary" ng-click="addItem()" data-dismiss="modal">Add to Bag
+                                            <span class="badge">{{quantity*price|currency}}</span>
+                                        </button>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
                         <div>
                             <h2>Maps and Hours</h2>
                         </div>
