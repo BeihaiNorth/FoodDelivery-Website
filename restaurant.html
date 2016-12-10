@@ -79,8 +79,16 @@
                         <div id="section1">
                             <h2>Real Meals</h2>
                             <ul class="list-group">
-                                <li class="list-group-item"><a href=# data-toggle="modal" data-target="#myModal" id="food1" onclick="showModal(this)">3 Pieces Combo<span class="label label-primary">$7.89</span></a></li>
-                                <li class="list-group-item"><a href=# data-toggle="modal" data-target="#myModal" id="food2">4 Pieces Combo<span class="label label-primary">$7.89</span></a></li>
+                                <li class="list-group-item">
+                                    <a href=# data-toggle="modal" data-target="#myModal" class = "showModal" id="1">
+                                        <span id="food1">3 Pieces Combo</span>
+                                        <span class="label label-primary">
+                                            <span>$</span>
+                                            <span id="price1">7.89</span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="list-group-item"><a href=# data-toggle="modal" data-target="#myModal" class = "showModal" id="2"><span id = "food2" >4 Pieces Combo</span><span class="label label-primary"><span>$</span><span id="price2">9.89</span></span></a></li>
                                 <li class="list-group-item"><a href=# data-toggle="modal" data-target="#myModal" id="food3">5 Wings Combo<span class="label label-primary">$7.89</span></a></li>
                                 <li class="list-group-item"><a href=# data-toggle="modal" data-target="#myModal" id="food4">Cajun Fish Combo<span class="label label-primary">$7.89</span></a></li>
                             </ul>
@@ -126,10 +134,11 @@
                                 <li class="list-group-item"><a href=# data-toggle="modal" data-target="#myModal">Soda<span class="label label-primary">$7.89</span></a></li>
                             </ul>
                         </div>
-                        <!-- Modal -->
+                        <!-- add item Modal -->
                         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
+                                    <!-- modal header -->
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                         <h4 class="modal-title" id="myModalLabel"></h4>
@@ -137,12 +146,13 @@
                                     <div class="modal-body">
                                         Make it a combo! Includes a signature side, a hot buttery biscuit and an ice cold, refreshing drink.
                                     </div>
+                                    <!-- modal footer -->
                                     <div class="modal-footer">
                                         <button type="button" class="glyphicon glyphicon-minus" ng-click="quantity = quantity - 1"></button>
                                         <input name="quantity" ng-model="quantity">
                                         <button type="button" class="glyphicon glyphicon-plus" ng-click="quantity = quantity + 1"></button>
                                         <button type="button" class="btn btn-primary" ng-click="addItem()" data-dismiss="modal">Add to Bag
-                                            <span class="badge">{{quantity*price|currency}}</span>
+                                            <span class="badge" id="myModalPrice">{{quantity*price|currency}}</span>
                                         </button>
                                     </div>
                                 </div>
@@ -154,6 +164,7 @@
                     </div>
                 </div>
             </div>
+            <!-- My bag -->
             <div class="col-sm-3">
                 <div class="panel panel-default">
                     <div class="panel-body">

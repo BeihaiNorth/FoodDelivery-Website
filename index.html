@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Food Delivery</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+  <!-- bootstrap -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   
+     
+
+  <style>
+  .jumbotron { 
+    background-color: #f4511e; /* Orange */
+    color: #ffffff;
+    padding: 300px 25px;
+  }
+  .bg-grey {
+    background-color: #f6f6f6;
+  }
+  .container {
+    padding: 0px 120px 60px 120px;
+  }
+  h4 {
+    padding:30px;
+  }
+  .whyUsIcon {
+      border: 10px solid transparent;
+      width: 80%;
+      height: 80%;
+      opacity: 0.8;
+  }
+  .whyUsIcon:hover {
+      border-color: #f1f1f1;
+  }
+  </style>
+
+<!-- autocomplete -->
+  <script>
+   $(function() {
+    var availableTags = [
+     "NEU","BU","BC"];
+    $( "#tags" ).autocomplete({
+      source: availableTags
+    });
+  });
+  </script> 
+
+
+
+</head>
+<body>
+
+<div class="jumbotron text-center">
+<h1>Food Delivery</h1> 
+<p>We specialize in BEST Food Delivery!</p> 
+  <form class="form-inline">
+    <div class="input-group">
+      <input type="text" class="form-control" size="50" id="tags" placeholder="Location" required>
+        <div class="input-group-btn">
+        <button type="button" class="btn btn-danger">Search</button>
+        </div>
+    </div>
+  </form>
+</div>
+
+<div class="container text-center">
+<h4>Why Order with Us?</h4>
+ <div class="row">
+    <div class="col-sm-4">
+      <img src="img/search.png" alt="search" class="whyUsIcon" width="150" height="150">
+      <p><br><strong>Find Favorites and Discover New Ones Online</strong></p>
+      <p><br>Browse thousands of restaurants and stores on website or on our App to get the best of your neighborhood delivered.</p>
+    </div>
+    <div class="col-sm-4">
+      <img src="img/orderonline.png" alt="orderonline" class="whyUsIcon" width="150" height="150">
+      <p><br><strong>Free, Easy, and Essential to Order</strong></p>
+      <p><br>It's free to order, so save time tackling your to-do list at home, at work, or on the go.</p>
+    </div>
+    <div class="col-sm-4">
+       <img src="img/delivery.png" alt="delivery" class="whyUsIcon" width="150" height="150">
+       <p><br><strong>Fast Delivery Ganranteed</strong></p>
+       <p><br>We promise to delivery your food as soon as possible. If there is a delay, we offer you twice refund.</p>    
+    </div>
+  </div>  
+</div>
+
+<div class="container-fluid bg-grey text-center">
+  <h2>Our Values</h2>
+  <h4><strong>MISSION:</strong> aaaa</h4> 
+  <p><strong>VISION:</strong>
+</div> 
+
+
+
+
+</body>
+</html>
